@@ -13,6 +13,11 @@ class TableView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var table: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        var nome:NSString = defaults.stringForKey("nome")! as NSString!
+        
+        Manager.sharedInstance.getAllUserRepos(nome)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
