@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14C1510" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Labels" representedClassName="GitApp.Labels" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="repo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Repo" inverseName="labels" inverseEntity="Repo" syncable="YES"/>
+    </entity>
+    <entity name="Repo" representedClassName="GitApp.Repo" syncable="YES">
+        <attribute name="repoName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="labels" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Labels" inverseName="repo" inverseEntity="Labels" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="repos" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="GitApp.User" syncable="YES">
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="repos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Repo" inverseName="user" inverseEntity="Repo" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Labels" positionX="-36" positionY="9" width="128" height="88"/>
+        <element name="Repo" positionX="-54" positionY="-9" width="128" height="90"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="75"/>
+    </elements>
 </model>

@@ -10,6 +10,9 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
 
+    @IBOutlet weak var repositorio: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -27,6 +27,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func btnEntrar(sender: AnyObject) {
 
         var nickName = textField.text
+       println("nome no defaults")
+        println(nickName)
  
         defaults.setObject(nickName, forKey: "nome")
         
@@ -42,6 +44,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         textField.resignFirstResponder()
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.textField.delegate = self
+        
+     
+       
+
+
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+    
+
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
